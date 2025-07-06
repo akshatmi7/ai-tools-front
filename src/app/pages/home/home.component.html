@@ -1,0 +1,93 @@
+<section class="hero">
+  <div class="hero-content">
+    <h1>
+      Welcome to <span class="highlight">AllIntelli</span>
+    </h1>
+    <p class="subheading">
+      Your ultimate destination to explore, learn, and master the best AI tools in the world.
+    </p>
+    <a href="#tools" class="cta-button">🚀 Browse Tools</a>
+  </div>
+
+  <div class="hero-image">
+     <img src="../../../assets/home-image.png" alt="AI Hero" />
+  </div>
+</section>
+<!-- Test button to go to admin -->
+
+
+
+
+<!-- 🔍 Filters -->
+<section class="filters">
+  <input
+    type="text"
+    placeholder="Search AI tools..."
+    [(ngModel)]="searchTerm"
+    (input)="filterTools()"
+  />
+
+  <select [(ngModel)]="selectedCategory" (change)="filterTools()">
+    <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+  </select>
+</section>
+
+<!-- 🧠 Tools Grid -->
+<div class="tools-grid" id="tools">
+  <app-tool-card *ngFor="let tool of paginatedTools" [tool]="tool"></app-tool-card>
+</div>
+
+<!-- 🔢 Pagination Controls -->
+<div class="pagination">
+  <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">Prev</button>
+
+  <button
+    *ngFor="let page of [].constructor(totalPages); let i = index"
+    (click)="changePage(i + 1)"
+    [class.active]="currentPage === i + 1">
+    {{ i + 1 }}
+  </button>
+
+  <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+</div>
+<!-- 🏢 Trusted by Innovators Section -->
+<section class="trusted-section">
+  <h2>Trusted by Innovators</h2>
+  <p class="cta-text">Join 200,000+ AI adopters like them</p>
+  <div class="trusted-logos">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Harvard_University_coat_of_arms.svg/800px-Harvard_University_coat_of_arms.svg.png" alt="Harvard" />
+    <img src="../../../assets/nvidia-logo-vert.png" alt="NVIDIA" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Notion-logo.svg" alt="Notion" />
+    <img src="../../../assets/Wikipedia-logo-v2.svg" alt="Wikipedia" />
+  </div>
+</section>
+
+
+<!-- 🧠 About Platform Section -->
+<section class="about-platform">
+  <h2>What is AllIntelli?</h2>
+  <p>
+    <strong>AllIntelli</strong> is your gateway to discovering and mastering the world’s most powerful AI tools. Created entirely with the help of AI technologies, our mission is to make artificial intelligence approachable, useful, and accessible for everyone — from developers and marketers to designers, researchers, and entrepreneurs.
+  </p>
+
+  <p>
+    Whether you're looking for AI-powered writing assistants, image generators, code helpers, or video creators, we organize and showcase the best tools available on the internet. Our platform helps you compare, explore, and experiment with tools that match your needs, saving you countless hours of research.
+  </p>
+
+  <p>
+    At AllIntelli, we believe in the potential of AI to revolutionize how we work, think, and create. That’s why we combine carefully curated tools with user-friendly descriptions, how-to-use guides, and real-world applications — all in one place.
+  </p>
+
+  <h3>🎯 Why AllIntelli?</h3>
+  <ul>
+    <li>✅ Handpicked AI tools with clear categories</li>
+    <li>✅ Short + full descriptions with Wikipedia-style insights</li>
+    <li>✅ Dedicated detail pages with “Visit Website” and “How to Use” options</li>
+    <li>✅ AI-generated recommendations for smarter discovery</li>
+    <li>✅ Built 100% using AI — from design to deployment</li>
+  </ul>
+
+  <p><strong>AllIntelli: Built by AI, for humans. 🚀</strong></p>
+</section>
+
+

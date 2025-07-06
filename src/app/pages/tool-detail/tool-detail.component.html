@@ -1,0 +1,52 @@
+<div class="tool-detail-container" *ngIf="tool">
+  <h1>{{ tool.name }}</h1>
+  <img [src]="tool.icon" alt="{{ tool.name }}" class="tool-icon">
+
+  <div class="description">
+    <p>{{ tool.description }}</p>
+  </div>
+
+  <div class="actions">
+
+    <button (click)="regenerateResearch()" class="regenerate-btn" [disabled]="isLoading">
+      {{ isLoading ? 'Regenerating...' : 'Regenerate Research' }}
+    </button>
+  </div>
+
+  <div *ngIf="isLoading" class="loading-indicator">Loading...</div>
+
+  <div *ngIf="researchText" class="research-summary">
+    <h3>Research Summary</h3>
+    <pre>{{ researchText }}</pre>
+  </div>
+
+  <div class="how-to-use" *ngIf="tool.howToUseSteps?.length">
+    <h3>How to Use</h3>
+    <ul>
+      <li *ngFor="let step of tool.howToUseSteps">{{ step }}</li>
+    </ul>
+  </div>
+
+  <div class="pros-cons" *ngIf="tool.pros?.length || tool.cons?.length">
+    <div class="pros" *ngIf="tool.pros?.length">
+      <h3>Pros</h3>
+      <ul>
+        <li *ngFor="let pro of tool.pros">{{ pro }}</li>
+      </ul>
+    </div>
+    <div class="cons" *ngIf="tool.cons?.length">
+      <h3>Cons</h3>
+      <ul>
+        <li *ngFor="let con of tool.cons">{{ con }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="faqs" *ngIf="tool.faqs?.length">
+    <h3>FAQs</h3>
+    <div *ngFor="let faq of tool.faqs" class="faq-item">
+      <strong>{{ faq.question }}</strong>
+      <p>{{ faq.answer }}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,126 @@
+<div class="digit-recognizer-container">
+  <h1 class="title">🎨 AI Digit Recognizer</h1>
+  <p class="subtext">Draw a number between 0 and 9 below ⬇️</p>
+
+  <div class="canvas-container">
+    <canvas #canvas width="300" height="300"></canvas>
+  </div>
+
+
+  <div class="buttons">
+    <button class="cta-button" (click)="clearCanvas()">Clear</button>
+    <button class="cta-button" (click)="recognize()">Recognize</button>
+  </div>
+
+  <p class="result">Recognized Number: <span class="recognized">{{ recognizedNumber }}</span></p>
+
+  <div class="description">
+    <!-- Put your full detailed description from earlier here -->
+     <div class="description">
+  <h2>🧠 What is This?</h2>
+  <p>This is an <strong>AI-powered digit recognition app</strong>, where you can <strong>draw any digit (0-9)</strong> on a canvas, and the app will predict what number you drew. It works completely in your web browser using <strong>Machine Learning (ML)</strong> and AI models trained with your own data.</p>
+
+  <h2>🚀 How Does This Work?</h2>
+  <ol>
+    <li><strong>Drawing the Number</strong><br>
+      You draw a digit on the <strong>HTML5 Canvas</strong>, which allows capturing your handwriting digitally.
+    </li>
+    <li><strong>Capturing the Image</strong><br>
+      The app converts your drawing into a grayscale image and resizes it to a smaller, standard size (e.g., 28x28 pixels) — like how handwritten digits are processed in popular datasets like MNIST.
+    </li>
+    <li><strong>Running AI Predictions</strong><br>
+      The pre-trained <strong>AI Model</strong>, loaded using TensorFlow.js, processes your drawing and predicts the number you wrote.
+    </li>
+  </ol>
+
+  <h2>🛠️ Technologies Used</h2>
+  <h3>✅ TensorFlow.js</h3>
+  <p>TensorFlow.js is a JavaScript library developed by Google that allows you to run Machine Learning models <strong>directly in your browser</strong> or in Node.js without needing any backend server. With TensorFlow.js, you can:</p>
+  <ul>
+    <li>Train models in the browser.</li>
+    <li>Run pre-trained models (like ours) with no installations required.</li>
+    <li>Process images, audio, and text using AI.</li>
+  </ul>
+
+  <h3>✅ Teachable Machine</h3>
+  <p>Teachable Machine is a <strong>no-code web tool by Google</strong> that lets you create machine learning models using:</p>
+  <ul>
+    <li>Images</li>
+    <li>Sounds</li>
+    <li>Poses</li>
+  </ul>
+  <p>Steps we followed using Teachable Machine:</p>
+  <ol>
+    <li>Collected several images of hand-drawn digits by drawing them and taking screenshots.</li>
+    <li>Uploaded those images to Teachable Machine.</li>
+    <li>Assigned them to classes like <code>0</code>, <code>1</code>, <code>2</code>, etc.</li>
+    <li>Clicked "Train" to let Teachable Machine train a neural network using your images.</li>
+    <li>Exported the model as a <strong>TensorFlow.js compatible model</strong>, including the <code>model.json</code> and weight files.</li>
+  </ol>
+  <p>Now, the AI model remembers how digits look like based on your training images, and predicts new inputs.</p>
+
+  <h2>🔍 What is TensorFlow?</h2>
+  <p>TensorFlow is an <strong>open-source machine learning framework created by Google</strong>. It is widely used to:</p>
+  <ul>
+    <li>Train deep learning models</li>
+    <li>Build AI solutions like image classification, text generation, and voice recognition</li>
+    <li>Deploy models on servers, mobile apps, and now in the browser with TensorFlow.js</li>
+  </ul>
+
+  <h2>🎯 How Did I Train the Model?</h2>
+  <ol>
+    <li>I first drew digits (0-9) several times on a drawing app and took screenshots of each digit.</li>
+    <li>I uploaded these images to Teachable Machine, creating classes for each digit.</li>
+    <li>Teachable Machine automatically built and trained a neural network model, adjusting it to learn from my examples.</li>
+    <li>Once trained, I exported the model for TensorFlow.js, which gave me a <code>model.json</code> file and some binary weight files.</li>
+    <li>I placed these files in my Angular app's assets and loaded them using TensorFlow.js.</li>
+  </ol>
+
+  <h2>🛡️ Why Train a Custom Model Instead of Using MNIST?</h2>
+  <p>Popular datasets like MNIST contain standard handwritten digits, but they may not match your unique drawing style. By training your own model:</p>
+  <ul>
+    <li>The model gets better at recognizing your handwriting.</li>
+    <li>You can experiment with fewer training images.</li>
+    <li>You learn how AI adapts to custom data.</li>
+  </ul>
+
+  <h2>⚙️ Other Technologies Involved</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Technology</th>
+        <th>Purpose</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Angular</td><td>Frontend framework to build the web app</td></tr>
+      <tr><td>TypeScript</td><td>Programming language used to build Angular apps</td></tr>
+      <tr><td>Canvas API</td><td>To draw and capture user inputs</td></tr>
+      <tr><td>HTML & CSS</td><td>To structure and style the app</td></tr>
+      <tr><td>Teachable Machine</td><td>To easily create a machine learning model</td></tr>
+      <tr><td>TensorFlow.js</td><td>To load and run the AI model in the browser</td></tr>
+    </tbody>
+  </table>
+
+  <h2>📚 What Can You Learn from This?</h2>
+  <ul>
+    <li>Basics of how AI models process images</li>
+    <li>How to collect your own data to train a machine learning model</li>
+    <li>Using Google’s Teachable Machine to create ML models without coding</li>
+    <li>Running AI models directly in the browser without server-side processing</li>
+    <li>Integrating machine learning models into modern web apps like Angular</li>
+  </ul>
+
+  <h2>✅ Future Improvements</h2>
+  <ul>
+    <li>Add more training images for better accuracy</li>
+    <li>Train the model using real handwriting variations</li>
+    <li>Expand to recognize letters or shapes</li>
+    <li>Add visual confidence scores or highlight mistakes</li>
+  </ul>
+</div>
+  </div>
+</div>
+
+  
+

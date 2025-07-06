@@ -1,0 +1,26 @@
+<h2>Add a New AI Tool</h2>
+
+<form [formGroup]="toolForm" (ngSubmit)="submitTool()">
+  <label>Tool Name:</label>
+  <input formControlName="name" placeholder="Tool Name">
+
+  <label>Slug:</label>
+  <input formControlName="slug" placeholder="Slug (used in URL, e.g. chatgpt)">
+
+  <label>Category:</label>
+  <input formControlName="category" placeholder="Category (e.g., Writing, Image)">
+
+  <label>Short Description:</label>
+  <textarea formControlName="description" placeholder="Short Description"></textarea>
+
+  <label>Full Description:</label>
+  <textarea formControlName="fullDescription" placeholder="Full Description (like Wikipedia)"></textarea>
+
+  <label>Icon URL:</label>
+  <input formControlName="iconUrl" placeholder="Image/Icon URL">
+
+  <label>Website URL:</label>
+  <input formControlName="website" placeholder="Official Website">
+
+  <button type="submit">➕ Add Tool</button>
+</form>
