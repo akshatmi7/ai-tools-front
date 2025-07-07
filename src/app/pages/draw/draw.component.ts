@@ -68,15 +68,16 @@ export class DrawComponent implements AfterViewInit {
   }
 
   async loadModel() {
-    try {
-      this.model = await tf.loadLayersModel('/assets/model/model.json');
-      this.modelLoaded = true;
-      console.log('Model loaded successfully');
-    } catch (error) {
-      console.error('Error loading model:', error);
-      this.result = 'Failed to load the model. Check console for details.';
-    }
+  try {
+    this.model = await tf.loadLayersModel('assets/model/model.json');
+    this.modelLoaded = true;
+    console.log('Model loaded successfully');
+  } catch (error) {
+    console.error('Error loading model:', error);
+    this.result = 'Failed to load the model. Check console for details.';
   }
+}
+
 
   async recognize() {
   if (!this.modelLoaded || !this.model) {
@@ -99,13 +100,14 @@ export class DrawComponent implements AfterViewInit {
   private getImageTensorFromCanvas() {
   const imgData = this.ctx.getImageData(0, 0, this.canvas.nativeElement.width, this.canvas.nativeElement.height);
   return tf.tidy(() => {
-    return tf.browser.fromPixels(imgData)
-      .resizeBilinear([224, 224])   // Resize to 224x224
-      .expandDims(0)                 // Add batch dimension → [1, 224, 224, 3]
+    return tf.browser.fromPixels(imgData, 1)     // 1 → grayscale
+      .resizeBilinear([28, 28])                  // Resize to 28x28
+      .expandDims(0)                             // Add batch dimension → [1, 28, 28, 1]
       .toFloat()
-      .div(255.0);                   // Normalize
+      .div(255.0);                               // Normalize to [0, 1]
   });
 }
+
 
 
 }
