@@ -13,6 +13,7 @@ import { SplashScreenComponent } from './splash-screen/splash-screen.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { DrawComponent } from './pages/draw/draw.component';
+import { PersonalityQuizComponent } from './pages/personality-quiz/personality-quiz.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { DrawComponent } from './pages/draw/draw.component';
     FooterComponent,
     SplashScreenComponent,
     AdminPanelComponent,
-    DrawComponent
+    DrawComponent,
+    PersonalityQuizComponent
   ],
   imports: [
     BrowserModule,

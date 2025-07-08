@@ -1,0 +1,22 @@
+<div class="quiz-wrapper">
+  <h2>🎭 Personality Quiz</h2>
+
+  <p class="winner-challenge">
+    🎉 Challenge: Whoever gets <strong>Complex Problem Solver</strong> wins the title of the day!
+  </p>
+
+  <p>Draw something and we'll tell your personality type!</p>
+
+  <div class="canvas-container">
+    <canvas #canvas width="224" height="224"></canvas>
+  </div>
+
+  <div class="buttons">
+    <button (click)="predictPersonality()">Predict Personality</button>
+    <button (click)="clearCanvas()">Clear</button>
+  </div>
+
+  <div *ngIf="loading" class="spinner"></div>
+
+  <p *ngIf="result && !loading" class="result" [innerHTML]="result"></p>
+</div>
