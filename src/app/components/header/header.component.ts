@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,13 +6,31 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  isDark = false;
+  menuOpen = false;
 
-  constructor(private router: Router) { }
+  constructor(private renderer: Renderer2) {}
 
   ngOnInit(): void {
-  }
-  goToAdmin() {
-    this.router.navigate(['/admin']);
+    const theme = localStorage.getItem('theme');
+    this.isDark = theme === 'dark';
+    if (this.isDark) {
+      this.renderer.addClass(document.body, 'dark-theme');
+    }
   }
 
+  toggleTheme(): void {
+    this.isDark = !this.isDark;
+    if (this.isDark) {
+      this.renderer.addClass(document.body, 'dark-theme');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      this.renderer.removeClass(document.body, 'dark-theme');
+      localStorage.setItem('theme', 'light');
+    }
+  }
+
+  toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
+  }
 }

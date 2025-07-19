@@ -4,9 +4,42 @@ body {
   font-family: 'Inter', sans-serif;
   background-color: #f5f7fa;
   color: #111;
+  margin: 0;
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
 }
+
+body.dark-theme {
+  background-color: #121212;
+  color: #f1f1f1;
+
+  input, textarea {
+    background-color: #1e1e1e;
+    color: #fff;
+    border: 1px solid #444;
+  }
+
+  a {
+    color: #00ffe0;
+  }
+}
+:root {
+  --card-bg: #fff;
+  --text-primary: #222;
+  --text-secondary: #777;
+  --card-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  --card-shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.08);
+  --primary: #6a5acd;
+}
+
+.dark-theme {
+  --card-bg: #1e1e2f;
+  --text-primary: #f0f0f0;
+  --text-secondary: #bbb;
+  --card-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
+  --card-shadow-hover: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+

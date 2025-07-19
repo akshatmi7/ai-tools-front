@@ -59,6 +59,44 @@ export class HomeComponent {
       this.currentPage = page;
     }
   }
+  
+categories1 = [
+  {
+    title: 'AI Chat',
+    iconClass: 'ph ph-chat-circle-text',
+    link: '/categories/ai-chat',
+  },
+  {
+    title: 'Image Generation',
+    iconClass: 'ph ph-image-square',
+    link: '/categories/image-generation',
+  },
+  {
+    title: 'Code Assistants',
+    iconClass: 'ph ph-code',
+    link: '/categories/code-assistants',
+  },
+  {
+    title: 'Productivity',
+    iconClass: 'ph ph-lightning',
+    link: '/categories/productivity',
+  },
+  {
+    title: 'Writing',
+    iconClass: 'ph ph-pencil-line',
+    link: '/categories/writing',
+  },
+  {
+    title: 'Education',
+    iconClass: 'ph ph-graduation-cap',
+    link: '/categories/education',
+  }
+];
+
+
+
+
+
 
   
 }

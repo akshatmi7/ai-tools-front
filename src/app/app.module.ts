@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { DrawComponent } from './pages/draw/draw.component';
 import { PersonalityQuizComponent } from './pages/personality-quiz/personality-quiz.component';
+import { CategoryCardComponent } from './components/category-card/category-card.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,14 +27,16 @@ import { PersonalityQuizComponent } from './pages/personality-quiz/personality-q
     SplashScreenComponent,
     AdminPanelComponent,
     DrawComponent,
-    PersonalityQuizComponent
+    PersonalityQuizComponent,
+    CategoryCardComponent,
+  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

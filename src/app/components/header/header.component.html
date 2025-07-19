@@ -1,12 +1,26 @@
 <header class="header">
-  <div class="logo">
-  <span class="highlight">All</span>Intelli
-</div>
+  <div class="header-left">
+    <div class="logo">All<span class="highlight">Intelli</span></div>
+  </div>
 
-  <nav class="nav-links">
-    <a (click)="goToAdmin()">Go to Admin Panel </a>
-    <a href="/">Home</a>
-    <a href="#tools">Tools</a>
-    <a href="#about">About</a>
+  <button class="hamburger" (click)="toggleMenu()">
+    &#9776;
+  </button>
+
+  <nav class="nav-links" [class.open]="menuOpen">
+    <a routerLink="/">Home</a>
+    <a routerLink="/blog">Blog</a>
+    <a routerLink="/categories">Categories</a>
+    <a routerLink="/about">About</a>
+
+    <div class="search-wrapper">
+      <input class="search-bar" placeholder="Search articles..." />
+    </div>
+
+    <div class="action-buttons">
+      <button class="theme-toggle" (click)="toggleTheme()">🌙</button>
+      <button class="auth-btn sign-in">Sign In</button>
+      <button class="auth-btn sign-up">Sign Up</button>
+    </div>
   </nav>
 </header>

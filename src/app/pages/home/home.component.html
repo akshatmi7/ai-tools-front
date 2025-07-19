@@ -63,6 +63,24 @@
 </section>
 
 
+<div class="category-header">
+  <h1 class="page-title">Explore AI Tool Categories</h1>
+</div>
+<div class="category-grid">
+  <app-category-card
+  *ngFor="let category of categories1"
+  [title]="category.title"
+  [iconClass]="category.iconClass"
+  [link]="category.link">
+</app-category-card>
+
+</div>
+
+
+<!-- The rest of your tool list and filters remain untouched -->
+
+
+
 <!-- 🧠 About Platform Section -->
 <section class="about-platform">
   <h2>What is AllIntelli?</h2>
